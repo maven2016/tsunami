@@ -1,6 +1,4 @@
-# tsunami
-
-Tsunami Security Scanner Deployment
+# Tsunami Security Scanner Deployment
 
 Public Image available: maven2016/tsunami:1.0.0
 Dockerfile included in git as well.
