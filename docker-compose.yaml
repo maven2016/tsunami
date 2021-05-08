@@ -1,0 +1,31 @@
+version: '3.2'
+
+volumes:
+  reports:
+
+services:
+  tsunami:
+    image: maven2016/tsunami:1.0.0
+    container_name: tsunami
+    volumes:
+      - ./hosts.txt:/usr/tsunami/hosts.txt
+      - reports:/usr/tsunami/logs
+  ses-py:
+    image: maven2016/ses-py:1.0.0
+    container_name: ses-py
+    volumes:
+      - ~/.aws:/root/.aws      
+      - ./ses/ses.py:/app/ses.py
+      - ./wait-for-scan.sh:/app/wait-for-scan.sh
+      - reports:/app/logs
+    #command: ["./wait-for-scan.sh", "python3", "ses.py"]
+    command: bash -c "while ping -c1 tsunami &>/dev/null; do sleep 2; echo 'tsunami scan still running'; done; echo 'tsunami scan complete' && python3 ses.py"
+    links:
+      - "tsunami:tsunami"
+    depends_on:
+      - "tsunami"
+    environment:
+      RECIPIENT: ""
+      # Verified SES email address
+      SENDER: ""
+      AWS_REGION: "us-west-2"
