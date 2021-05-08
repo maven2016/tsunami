@@ -5,11 +5,11 @@ Dockerfile included in git as well.<br/>
 
 docker-compose deployment: <br/>
 modify hosts.txt to include ipv4 addresses to scan. <br/>
-modify docker-compose.yaml envrionment variables: 
+modify docker-compose.yaml envrionment variables:
   1. RECIPIENT - where to send the scan reports. 
   2. SENDER - AWS SES verified email address to send from.
   3. AWS_REGION - AWS Region where the verfied SES email address is located. </br>
-</br>
+
 Make sure to have AWS Profile with AWS SES access in ~/.aws/credentials </br>
 or comment out in the volumes block: - ~/.aws:/root/.aws </br>
 and add environment variables: </br>
