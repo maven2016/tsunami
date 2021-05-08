@@ -1,12 +1,12 @@
 # Tsunami Security Scanner Deployment
 
-Public Image available: maven2016/tsunami:1.0.0
-Dockerfile included in git as well.
+Public Image available: maven2016/tsunami:1.0.0 <br/>
+Dockerfile included in git as well.<br/>
 
-docker-compose deployment:
-modify hosts.txt to include ipv4 addresses to scan.
-modify docker-compose.yaml envrionment variables:
-  1. RECIPIENT - where to send the scan reports.
+docker-compose deployment: <br/>
+modify hosts.txt to include ipv4 addresses to scan. <br/>
+modify docker-compose.yaml envrionment variables: <br/>
+  1. RECIPIENT - where to send the scan reports. <br/>
   2. SENDER - AWS SES verified email address to send from.
   3. AWS_REGION - AWS Region where the verfied SES email address is located.
 Make sure to have AWS Profile with AWS SES access in ~/.aws/credentials
