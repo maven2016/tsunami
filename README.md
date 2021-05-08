@@ -24,7 +24,7 @@ docker-compose down </br>
 </br>
 helm3 deployment:</br>
 Enter values in values.yaml</br>
-Modfiy list of hosts to scan in helm/templates/hosts.yaml
+Modfiy list of hosts to scan in helm/templates/hosts.yaml </br>
 </br>
 To bring up the env:</br>
 helm upgrade --install tsunami -f values.yaml . </br>
